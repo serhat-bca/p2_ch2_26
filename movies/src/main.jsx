@@ -1,0 +1,15 @@
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+
+const movies = [
+  { id: 1, title: "The Shawshank Redemption", watchlist: true },
+  { id: 2, title: "Inception", watchlist: false },
+  { id: 3, title: "The Dark Knight", watchlist: true },
+  { id: 4, title: "Interstellar", watchlist: false },
+  { id: 5, title: "Pulp Fiction", watchlist: true },
+  { id: 6, title: "The Matrix", watchlist: false },
+  { id: 7, title: "Forrest Gump", watchlist: true },
+  { id: 8, title: "Fight Club", watchlist: false },
+];
+
+createRoot(document.getElementById("root")).render(<App movies={movies} />);
