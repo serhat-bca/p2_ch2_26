@@ -1,18 +1,6 @@
 import Show from "./components/Show";
 
 const App = () => {
-  const seinfeld = {
-    id: 1,
-    title: "Seinfeld Season One",
-    episodes: [
-      { id: 1, title: "The Seinfeld Chronicles", views: 8200000 },
-      { id: 2, title: "The Stake Out", views: 7600000 },
-      { id: 3, title: "The Robbery", views: 7400000 },
-      { id: 4, title: "Male Unbonding", views: 7100000 },
-      { id: 5, title: "The Stock Tip", views: 7900000 },
-    ],
-  };
-
   const show = [
     {
       id: 1,
