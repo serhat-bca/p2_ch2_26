@@ -1,4 +1,6 @@
 const Season = ({ season }) => {
+  // search online how to use reduce to sum numbers in an array
+
   return (
     <div>
       <h2>{season.title}</h2>
@@ -7,6 +9,10 @@ const Season = ({ season }) => {
           {e.title} - Views: {e.views}
         </p>
       ))}
+      <p>
+        Total Views:{" "}
+        {season.episodes.reduce((total, ep) => total + ep.views, 0)}
+      </p>
     </div>
   );
 };
