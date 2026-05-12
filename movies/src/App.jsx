@@ -4,19 +4,41 @@ import { useState } from "react";
 const App = ({ movies }) => {
   const [movieName, setName] = useState("");
   const [movieList, setList] = useState(movies);
+  const [filterStatus, updateFilter] = useState(true);
+
+  const changeFilter = () => {
+    // filterStatus ? updateFilter(false) : updateFilter(true);
+    updateFilter(!filterStatus);
+  };
+
+  const filteredList = filterStatus
+    ? movieList.filter((m) => m.watchlist)
+    : movieList; // filter movieList : movieList;
+
+  // filter method is similar syntax to map method
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Movie: ", movieName);
-    setList([...movieList, { id: 67, title: movieName, watchlist: false }]);
+    setList([
+      ...movieList,
+      {
+        id: Math.floor(Math.random() * 10000),
+        title: movieName,
+        watchlist: false,
+      },
+    ]);
     setName("");
   };
 
   return (
     <div>
       <h2>Movies App</h2>
+      <button onClick={changeFilter}>
+        {filterStatus ? "Show All Movies" : "Show Only Watchlist"}
+      </button>
       <ul>
-        {movies.map((m) => (
+        {filteredList.map((m) => (
           <Movie movie={m} key={m.id} />
         ))}
       </ul>
