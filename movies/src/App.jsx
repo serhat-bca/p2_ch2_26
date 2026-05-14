@@ -1,5 +1,6 @@
 import Movie from "./components/Movie";
 import { useState } from "react";
+import MovieList from "./components/MovieList";
 
 const App = ({ movies }) => {
   const [movieName, setName] = useState("");
@@ -34,14 +35,13 @@ const App = ({ movies }) => {
   return (
     <div>
       <h2>Movies App</h2>
-      <button onClick={changeFilter}>
-        {filterStatus ? "Show All Movies" : "Show Only Watchlist"}
-      </button>
-      <ul>
-        {filteredList.map((m) => (
-          <Movie movieList={movieList} setList={setList} movie={m} key={m.id} />
-        ))}
-      </ul>
+      <MovieList
+        changeFilter={changeFilter}
+        filterStatus={filterStatus}
+        filteredList={filteredList}
+        movieList={movieList}
+        setList={setList}
+      />
       <form onSubmit={handleSubmit}>
         {/* uncontrolled needs a name */}
         {/* you can use a state for controlled input */}
