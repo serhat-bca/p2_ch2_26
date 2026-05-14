@@ -1,4 +1,3 @@
-import Movie from "./components/Movie";
 import { useState } from "react";
 import MovieList from "./components/MovieList";
 
