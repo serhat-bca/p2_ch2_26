@@ -39,7 +39,7 @@ const App = ({ movies }) => {
       </button>
       <ul>
         {filteredList.map((m) => (
-          <Movie movie={m} key={m.id} />
+          <Movie movieList={movieList} setList={setList} movie={m} key={m.id} />
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
