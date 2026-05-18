@@ -19,7 +19,6 @@ const App = ({ movies }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Movie: ", movieName);
     setList([
       ...movieList,
       {
