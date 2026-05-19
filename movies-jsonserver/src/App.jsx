@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MovieList from "./components/MovieList";
 
-const App = ({ movies }) => {
+const App = () => {
   const [movieName, setName] = useState("");
   const [movieList, setList] = useState(movies);
   const [filterStatus, updateFilter] = useState(true);
