@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MovieList from "./components/MovieList";
+import axios from "axios";
 
 const App = () => {
   const [movieName, setName] = useState("");
-  const [movieList, setList] = useState(movies);
+  const [movieList, setList] = useState([]);
   const [filterStatus, updateFilter] = useState(true);
+
+  
+  useEffect(()=>{
+    axios.get("http://localhost:3001/movies").then(response => {
+      setList(response.data);
+    })
+  },[])
 
   const changeFilter = () => {
     // filterStatus ? updateFilter(false) : updateFilter(true);
