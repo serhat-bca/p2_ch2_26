@@ -5,14 +5,13 @@ import axios from "axios";
 const App = () => {
   const [movieName, setName] = useState("");
   const [movieList, setList] = useState([]);
-  const [filterStatus, updateFilter] = useState(true);
+  const [filterStatus, updateFilter] = useState(false);
 
-  
-  useEffect(()=>{
-    axios.get("http://localhost:3001/movies").then(response => {
+  useEffect(() => {
+    axios.get("http://localhost:3001/movies").then((response) => {
       setList(response.data);
-    })
-  },[])
+    });
+  }, []);
 
   const changeFilter = () => {
     // filterStatus ? updateFilter(false) : updateFilter(true);
@@ -27,14 +26,18 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setList([
-      ...movieList,
-      {
-        id: Math.floor(Math.random() * 10000),
+    // add the new movie to the backend
+    // through post request
+    axios
+      .post("http://localhost:3001/movies", {
         title: movieName,
         watchlist: false,
-      },
-    ]);
+      })
+      .then((response) => {
+        setList([...movieList, response.data]);
+      });
+    // update the movieList state with the new movie
+    // so the browser will show the updated list
     setName("");
   };
 

@@ -42,8 +42,8 @@
     },
     {
       "title": "Spiderman",
-      "wathclist": true,
-      "id": "3MkkG6uN8ak"
+      "watchlist": false,
+      "id": "ncphgkxl8AQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
