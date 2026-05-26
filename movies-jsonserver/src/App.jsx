@@ -41,6 +41,28 @@ const App = () => {
     setName("");
   };
 
+  const handleSubmitWithAsync = async (e) => {
+    e.preventDefault();
+    // add the new movie to the backend
+    // through post request
+    const response = await axios.post("http://localhost:3001/movies", {
+      title: movieName,
+      watchlist: false,
+    });
+    setList([...movieList, response.data]);
+    // axios
+    //   .post("http://localhost:3001/movies", {
+    //     title: movieName,
+    //     watchlist: false,
+    //   })
+    //   .then((response) => {
+    //     setList([...movieList, response.data]);
+    //   });
+    // update the movieList state with the new movie
+    // so the browser will show the updated list
+    setName("");
+  };
+
   return (
     <div>
       <h2>Movies App</h2>
@@ -51,7 +73,7 @@ const App = () => {
         movieList={movieList}
         setList={setList}
       />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitWithAsync}>
         {/* uncontrolled needs a name */}
         {/* you can use a state for controlled input */}
         <input onChange={(e) => setName(e.target.value)} value={movieName} />

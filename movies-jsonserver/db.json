@@ -18,7 +18,7 @@
     {
       "id": "4",
       "title": "Interstellar",
-      "watchlist": false
+      "watchlist": true
     },
     {
       "id": "5",
@@ -44,6 +44,11 @@
       "title": "Spiderman",
       "watchlist": false,
       "id": "ncphgkxl8AQ"
+    },
+    {
+      "title": "Async Spiders",
+      "watchlist": false,
+      "id": "Raq5XNpnGvU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
